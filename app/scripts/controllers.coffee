@@ -8,9 +8,10 @@ angular.module('app.controllers', [])
   '$scope'
   '$location'
   '$resource'
-  '$rootScope'
+  '$rootScope',
+  '$http'
 
-($scope, $location, $resource, $rootScope) ->
+($scope, $location, $resource, $rootScope, $http) ->
 
   # Uses the url to determine if the selected
   # menu item should have the class active.
@@ -34,13 +35,6 @@ angular.module('app.controllers', [])
       return ''
 ])
 
-.controller('MyCtrl1', [
-  '$scope'
-
-($scope) ->
-  $scope.onePlusOne = 2
-])
-
 .controller('MyCtrl2', [
   '$scope'
 
@@ -48,19 +42,15 @@ angular.module('app.controllers', [])
   $scope
 ])
 
-.controller('TodoCtrl', [
-  '$scope'
+.controller('HomeCtrl', [
+  '$scope','$http'
 
-($scope) ->
+($scope, $http) ->
 
-  $scope.todos = [
-    text: "learn angular"
-    done: true
-  ,
-    text: "build an angular app"
-    done: false
-  ]
-
+  request = $http.get 'data/themes.json'
+  request.success (data) ->
+        $scope.themes = data
+    
   $scope.addTodo = ->
     $scope.todos.push
       text: $scope.todoText

@@ -1,0 +1,10 @@
+      <div id="categories" ng-controller="HomeCtrl">
+        <div class="row">
+          <div class="col-md-4" ng-repeat="theme in themes">
+              <a href="liste.html" class="thumbnail">
+              <img src="img/{{theme.image}}" class="img-responsive"/>
+                  <div class="caption">{{theme.label}}</div>
+              </a>
+          </div>
+        </div>
+      </div>

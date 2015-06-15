@@ -1,0 +1,26 @@
+[
+   {
+      "label":"Entrées",
+      "image":"entree.jpg"
+   },
+   {
+      "label":"Plats",
+      "image":"plat.jpg"
+   },
+   {
+      "label":"Desserts",
+      "image":"dessert.jpg"
+   },
+   {
+      "label":"Apéritifs",
+      "image":"aperitif.jpg"
+   },
+   {
+      "label":"Smoothies & jus",
+      "image":"smoothies.jpg"
+   },
+   {
+      "label":"Pains",
+      "image":"pain.jpg"
+   }
+]
