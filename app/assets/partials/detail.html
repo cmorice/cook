@@ -1,28 +1,23 @@
-<div class="row">
+<div class="row" ng-controller="DetailCtrl">
           <div class="col-md-4">
-              <img src="img/recette1.jpg" class="img-responsive"/>
+              <img src="img/{{recipe.image}}" class="img-responsive"/>
           </div>
           <div class="col-md-8" id="recette">
-              <h3>Carrés Sablés Rhubarbe, Orange &amp; Pistaches <small>- pour 4 personnes</small></h3>
+              <h2>{{recipe.label}} <small>- pour {{recipe.personnes}} personnes</small></h2>
               <div class="content">
-                  <h4>Pour la rhubarbe rotie</h4>
+                  <div ng-repeat="preparation in recipe.steps">
+                  <h3>{{preparation.label}}</h3>
                   <dl class="dl-horizontal" id="ingredients">
-                      <dt>Rubarbe</dt>
-                      <dd>3</dd>
-                      <dt>pistaches</dt>
-                      <dd>50g</dd>
-                </dl>  
-
+                      <div ng-repeat="ingredient in preparation.ingredients">
+                          <dt>{{ingredient.name}}</dt>
+                          <dd>{{ingredient.quantity}}{{ingredient.unity}}</dd>
+                      </div>
+                   </dl> 
+                  
                   <button type="button" class="btn btn-primary">Voir la préparation</button>
+                      
+                  </div>
 
-                  <h4>pour la base sablée aux pistaches</h4>
-                  <dl class="dl-horizontal" id="ingredients">
-                      <dt>Beurre</dt>
-                      <dd>150g</dd>
-                      <dt>sucre</dt>
-                      <dd>70g</dd>
-                </dl> 
-                  <button type="button" class="btn btn-primary">Voir la préparation</button>
             </div>
           </div>
         </div>

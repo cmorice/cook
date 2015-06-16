@@ -1,20 +1,9 @@
-<div class="row">
-          <div class="col-md-4">
-              <a href="#" class="thumbnail">
-              <img src="img/entree.jpg" class="img-responsive"/>
-                  <div class="caption">Salade avocat, crevettes</div>
-              </a>
-          </div>
-          <div class="col-md-4">
-              <a href="#" class="thumbnail">
-              <img src="img/plat.jpg" class="img-responsive"/>
-                  <div class="caption">Gaspacho tomates et cerises</div>
-              </a>
-          </div>
-          <div class="col-md-4">
-              <a href="#" class="thumbnail">
-              <img src="img/dessert.jpg" class="img-responsive"/>
-                  <div class="caption">Samousa poulet</div>
+<div class="row" ng-controller="ListCtrl">
+    <h2>{{selectedTheme}}</h2>
+          <div class="col-md-2" ng-repeat="recette in recettes | filter:isActive">
+              <a href="#/detail/{{recette.id}}" class="thumbnail">
+              <img src="img/{{recette.image}}" class="img-responsive"/>
+                  <div class="caption">{{recette.label}}</div>
               </a>
           </div>
         </div>

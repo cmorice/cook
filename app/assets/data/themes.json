@@ -1,26 +1,32 @@
 [
    {
+      "id" : "entree",
       "label":"Entrées",
       "image":"entree.jpg"
    },
    {
+      "id" : "plat",
       "label":"Plats",
       "image":"plat.jpg"
    },
    {
+      "id" : "dessert",
       "label":"Desserts",
       "image":"dessert.jpg"
    },
    {
+      "id" : "aperitif",
       "label":"Apéritifs",
       "image":"aperitif.jpg"
    },
    {
+      "id" : "smoothie",
       "label":"Smoothies & jus",
       "image":"smoothies.jpg"
    },
    {
-      "label":"Pains",
+      "id" : "pain",
+      "label":"Pains & viennoiseries",
       "image":"pain.jpg"
    }
 ]

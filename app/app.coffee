@@ -20,8 +20,8 @@ App.config([
   $routeProvider
 
     .when('/', {templateUrl: '/partials/home.html'})
-    .when('/list', {templateUrl: '/partials/list.html'})
-    .when('/detail', {templateUrl: '/partials/detail.html'})
+    .when('/list/:themeId', {templateUrl: '/partials/list.html'})
+    .when('/detail/:recipeId', {templateUrl: '/partials/detail.html'})
 
   # Without server side support html5 must be disabled.
   $locationProvider.html5Mode(false)

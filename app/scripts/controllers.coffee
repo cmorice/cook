@@ -8,7 +8,7 @@ angular.module('app.controllers', [])
   '$scope'
   '$location'
   '$resource'
-  '$rootScope',
+  '$rootScope'
   '$http'
 
 ($scope, $location, $resource, $rootScope, $http) ->
@@ -33,13 +33,33 @@ angular.module('app.controllers', [])
       return 'active'
     else
       return ''
+    
+  request = $http.get 'data/themes.json'
+  request.success (data) ->
+    $scope.themes = data
+    
+  request = $http.get 'data/recettes.json'
+  request.success (data) ->
+    $scope.recettes = data
+
+
 ])
 
-.controller('MyCtrl2', [
-  '$scope'
+.controller('ListCtrl', [
+  '$scope','$routeParams'
 
-($scope) ->
-  $scope
+($scope, $routeParams) ->
+      $scope.selectedTheme = $routeParams.themeId
+        
+      $scope.isActive = (recette) -> 
+        recette.theme == $scope.selectedTheme;
+])
+
+.controller('DetailCtrl', [
+  '$scope','$routeParams'
+
+($scope, $routeParams) ->
+      $scope.recipe = $scope.recettes[$routeParams.recipeId - 1]
 ])
 
 .controller('HomeCtrl', [
@@ -47,10 +67,6 @@ angular.module('app.controllers', [])
 
 ($scope, $http) ->
 
-  request = $http.get 'data/themes.json'
-  request.success (data) ->
-        $scope.themes = data
-    
   $scope.addTodo = ->
     $scope.todos.push
       text: $scope.todoText
