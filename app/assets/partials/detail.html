@@ -1,23 +1,34 @@
-<div class="row" ng-controller="DetailCtrl">
+<div class="row" ng-controller="DetailCtrl as detail" id="detail">
           <div class="col-md-4">
               <img src="img/{{recipe.image}}" class="img-responsive"/>
           </div>
-          <div class="col-md-8" id="recette">
-              <h2>{{recipe.label}} <small>- pour {{recipe.personnes}} personnes</small></h2>
+          <div class="col-md-8" id="recette" ng-init="option=1">
+              <h2>{{recipe.label}} <br/><small>pour {{recipe.personnes}} personnes</small></h2>
+                  <ul class="nav nav-tabs">
+                      <li role="presentation" ng-class="{'active' : option==1}"><a ng-click="option=1">Ingrédients</a></li>
+                      <li role="presentation" ng-class="{'active' : $parent.option=='step_'+$index}" ng-repeat="preparation in recipe.steps"><a ng-click="$parent.option='step_'+$index">{{preparation.label}}</a></li>
+                  </ul>
               <div class="content">
-                  <div ng-repeat="preparation in recipe.steps">
-                  <h3>{{preparation.label}}</h3>
-                  <dl class="dl-horizontal" id="ingredients">
-                      <div ng-repeat="ingredient in preparation.ingredients">
-                          <dt>{{ingredient.name}}</dt>
-                          <dd>{{ingredient.quantity}}{{ingredient.unity}}</dd>
-                      </div>
-                   </dl> 
                   
-                  <button type="button" class="btn btn-primary">Voir la préparation</button>
-                      
-                  </div>
+                  <div id="ingredients" ng-show="option==1">
+                      <div ng-repeat="preparation in recipe.steps">
+                          <h3>{{preparation.label}}</h3>
+                          <dl class="dl-horizontal" id="ingredients">
+                              <div ng-repeat="ingredient in preparation.ingredients">
+                                  <dt>{{ingredient.name}}</dt>
+                                  <dd>{{ingredient.quantity}}{{ingredient.unity}}</dd>
+                              </div>
+                           </dl> 
 
+                          <button type="button" class="btn btn-primary"><a ng-click="$parent.option='step_'+$index">Voir la préparation</a></button>
+
+                    </div>
+                </div>
+                  
+                  <div ng-repeat="preparation in recipe.steps" ng-show="$parent.option=='step_'+$index">
+                      {{preparation.description}}
+                  </div>
+                
             </div>
           </div>
-        </div>
+</div>

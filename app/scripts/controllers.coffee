@@ -59,7 +59,8 @@ angular.module('app.controllers', [])
   '$scope','$routeParams'
 
 ($scope, $routeParams) ->
-      $scope.recipe = $scope.recettes[$routeParams.recipeId - 1]
+  $scope.recipe = $scope.recettes[$routeParams.recipeId - 1]
+
 ])
 
 .controller('HomeCtrl', [
