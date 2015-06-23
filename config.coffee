@@ -32,5 +32,8 @@ exports.config =
       modules_folder: 'partials'
       locals: {}
 
+  server:
+    noCors: true
+
   # Enable or disable minifying of result js / css files.
   # minify: true

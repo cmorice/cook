@@ -10,8 +10,9 @@ angular.module('app.controllers', [])
   '$resource'
   '$rootScope'
   '$http'
+  'Recipes'
 
-($scope, $location, $resource, $rootScope, $http) ->
+($scope, $location, $resource, $rootScope, $http, Recipes) ->
 
   # Uses the url to determine if the selected
   # menu item should have the class active.
@@ -37,11 +38,8 @@ angular.module('app.controllers', [])
   request = $http.get 'data/themes.json'
   request.success (data) ->
     $scope.themes = data
-    
-  request = $http.get 'data/recettes.json'
-  request.success (data) ->
-    $scope.recettes = data
-
+        
+  $scope.recettes = Recipes.query();
 
 ])
 
@@ -59,8 +57,8 @@ angular.module('app.controllers', [])
   '$scope','$routeParams'
 
 ($scope, $routeParams) ->
-  $scope.recipe = $scope.recettes[$routeParams.recipeId - 1]
-
+  i = (item for item in $scope.recettes when item._id == $routeParams.recipeId)
+  $scope.recipe = i[0]
 ])
 
 .controller('HomeCtrl', [

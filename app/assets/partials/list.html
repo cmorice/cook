@@ -1,7 +1,7 @@
 <div class="row" ng-controller="ListCtrl">
     <h2>{{selectedTheme}}</h2>
           <div class="col-md-2" ng-repeat="recette in recettes | filter:isActive">
-              <a href="#/detail/{{recette.id}}" class="thumbnail">
+              <a href="#/detail/{{recette._id}}" class="thumbnail">
               <img src="img/{{recette.image}}" class="img-responsive"/>
                   <div class="caption">{{recette.label}}</div>
               </a>

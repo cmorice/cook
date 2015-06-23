@@ -1,6 +1,6 @@
-<div class="row" ng-controller="DetailCtrl as detail" id="detail">
+<div class="row" ng-controller="DetailCtrl">
           <div class="col-md-4">
-              <img src="img/{{recipe.image}}" class="img-responsive"/>
+              <img src="img/{{recipe.image}}" class="img-responsive hidden-sm hidden-xs"/>
           </div>
           <div class="col-md-8" id="recette" ng-init="option=1">
               <h2>{{recipe.label}} <br/><small>pour {{recipe.personnes}} personnes</small></h2>
@@ -36,13 +36,13 @@
                   
                   <!-- Contenu pour chaque préparation-->
                   <div class="container-fluid" ng-repeat="preparation in recipe.steps" ng-show="$parent.option=='step_'+$index">
-                      <div class="row">
+                      <div class="row detail_preparation">
                           <div class="col-md-8 text-justify">
                                 {{preparation.description}}
                           </div>
                       
                     <!-- Liste des ingrédients pour la préparation courante -->
-                      <div class="col-md-4" id="sidebar_{{$index}}">
+                      <div class="col-md-4 ingredients_sidebar" id="sidebar_{{$index}}">
                         <dl class="dl-horizontal">
                               <div ng-repeat="ingredient in preparation.ingredients">
                                   <dt>{{ingredient.name}}</dt>

@@ -4,4 +4,8 @@
 
 angular.module('app.services', [])
 
-.factory 'version', -> "0.1"
+.factory 'Recipes', [
+  '$resource'
+  ($resource) ->
+    $resource 'http://localhost:3000/recipes/:id', null, 'update': method: 'PUT'
+]
