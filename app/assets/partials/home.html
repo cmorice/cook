@@ -1,6 +1,6 @@
       <div id="categories" ng-controller="HomeCtrl">
         <div class="row">
-          <div class="col-md-4" ng-repeat="theme in themes">
+          <div class="col-xs-6 col-sm-4 category" ng-repeat="theme in themes">
               <a ng-href="#/list/{{theme.id}}" class="thumbnail">
               <img src="img/{{theme.image}}" class="img-responsive"/>
                   <div class="caption">{{theme.label}}</div>

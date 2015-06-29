@@ -1,4 +1,5 @@
 // Variables
+@import "/bower_components/bootstrap-less/less/variables.less";
 @import "_variables.less";
 
 body {
@@ -178,6 +179,10 @@ body {
        text-transform: uppercase;
 }
 
+.navbar-brand {
+    text-transform: uppercase;
+}
+
 /*h2 {
     font-size: 21px;   
     padding: 20px 15px;
@@ -201,7 +206,27 @@ h2 {
 
 #categories {
     margin: 10px;
+    
+    .category {
+        padding: 5px;
+        
+        .thumbnail {
+        margin-bottom : 5px;
+            .caption {
+                padding : 0px;
+            }
+        }
+    }
 }
+
+@media(min-width: @screen-sm-min) {
+    .thumbnail {
+        .caption {
+            padding : 9px;
+        }
+    }
+}
+
 
 a.thumbnail:hover,
 a.thumbnail:focus,
@@ -231,13 +256,6 @@ a.thumbnail.active {
  text-align: left;   
 }
 
-#detail div {
-  padding : 0px;
-}
-#detail div.content {
-    padding : 10px;
-}
-
 .btn-primary {
   color: white;
   background-color: @brand-primary;
@@ -257,19 +275,55 @@ button a {
     border-radius : 0px;
 }
 
-.detail_preparation {
-    position: relative;
+/*===============================================*/
+/* Liste des recettes
+/*===============================================*/
+
+#list .list-group-item-heading {
+    font-size: 16px;
 }
 
-.ingredients_sidebar {
-    position: absolute;
-    top:0;
-    right: 0;
-    margin-right: -10px;
+/*===============================================*/
+/* Detail d'une recette
+/*===============================================*/
+
+#detail div {
+    padding: 0px;
     
-    dl {
-        background-color : @gray-lighter;
-        margin-left: 10px;
+    .content {
+        padding: 10px;
     }
 }
+
+@media(min-width: @screen-sm-min) {
+    .detail_preparation {
+        position: relative;
+    }
+}
+
+/*.ingredients_sidebar {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    padding: 5px;
+
+    dl {
+        background-color : @gray-lighter;
+    }
+}*/
+
+/*@media(min-width: @screen-sm-min) {*/
+    .ingredients_sidebar {
+        position: absolute;
+        top:0;
+        right: 0;
+        width: inherit;
+        margin-right: -10px;
+
+        dl {
+            background-color : @gray-lighter;
+            margin-left: 10px;
+        }
+    }
+/*}*/
 

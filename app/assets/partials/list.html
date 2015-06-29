@@ -1,9 +1,16 @@
-<div class="row" ng-controller="ListCtrl">
+<div class="row" id="list" ng-controller="ListCtrl">
     <h2>{{selectedTheme}}</h2>
-          <div class="col-md-2" ng-repeat="recette in recettes | filter:isActive">
+          <div class="col-sm-2 hidden-xs" ng-repeat="recette in recettes | filter:isActive">
               <a href="#/detail/{{recette._id}}" class="thumbnail">
               <img src="img/{{recette.image}}" class="img-responsive"/>
                   <div class="caption">{{recette.label}}</div>
               </a>
           </div>
-        </div>
+    
+          <div class="list-group visible-xs-block">
+              <a href="#/detail/{{recette._id}}" class="list-group-item" ng-repeat="recette in recettes | filter:isActive">
+                <p class="list-group-item-heading">{{recette.label}}</p>
+                <p class="list-group-item-text">...</p>
+              </a>
+           </div>
+</div>
